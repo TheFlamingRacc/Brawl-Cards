@@ -23,6 +23,8 @@ import {
 } from "@/app/atoms";
 import EndGameDialog from "./EndGameDialog";
 import BotSpace from "../PlayerSpace/BotSpace";
+import ReturnToMenuButton from "./GameControllers/ReturnToMenuButton";
+import RestartGameButton from "./GameControllers/RestartGameButton";
 
 export default function GameBoard() {
   const [gameEnded, setGameEnded] = useAtom(gameEndedAtom);
@@ -261,6 +263,17 @@ export default function GameBoard() {
 
       <MainDeckStack value={mainDeck.length} />
       <EndGameDialog gameEnded={gameEnded} />
+      <Box
+        zIndex={3}
+        top={20}
+        left={20}
+        position={"absolute"}
+        display={"flex"}
+        gap={2}
+      >
+        <ReturnToMenuButton />
+        <RestartGameButton />
+      </Box>
     </Box>
   );
 }
