@@ -48,7 +48,6 @@ export default function GameBoard() {
   const toggleAttacking = () =>
     setCurrentAttacking((prev) => (prev === "player1" ? "player2" : "player1"));
 
-  // --- helper для owner ---
   const assignOwner = (
     card: CardType,
     owner: "player1" | "player2"
@@ -65,8 +64,7 @@ export default function GameBoard() {
   };
 
   const addCardToDeck = (deck: CardType[], card: CardType) => [...deck, card];
-
-  // --- ход гравця ---
+  // походити
   const playCard = (cardId: number) => {
     const isPlayer1 = currentAttacking === "player1";
     const targetDeck = isPlayer1 ? playerDeck : opponentDeck;
@@ -74,7 +72,6 @@ export default function GameBoard() {
 
     const targetCard = targetDeck.find((c) => c.id === cardId);
 
-    // Перевірка owner
     if (!targetCard || targetCard.owner !== currentAttacking) return;
 
     if (slot1 === null || slot2 === null) {
@@ -88,7 +85,7 @@ export default function GameBoard() {
     }
   };
 
-  // --- битва ---
+  // битва
   useEffect(() => {
     setTimeout(() => {
       if (slot1 !== null && slot2 !== null) {
@@ -124,18 +121,20 @@ export default function GameBoard() {
     }, 1000);
   }, [slot2, slot3]);
 
+  //закінчити раунд
   const endRound = () => {
     setSlot1(null);
     setSlot2(null);
   };
 
+  // скинути BattleSlots
   const resetStack = () => {
     setSlot1(null);
     setSlot2(null);
     setSlot3([]);
   };
 
-  // --- видача карт якщо колода порожня ---
+  // видача екстра-карти
   useEffect(() => {
     const owner = currentAttacking;
     const currentDeck = owner === "player1" ? playerDeck : opponentDeck;
@@ -148,7 +147,7 @@ export default function GameBoard() {
     }
   }, [currentAttacking, mainDeck, playerDeck, opponentDeck]);
 
-  // --- end game ---
+  // закінчити гру, роздати карти по очковим колодам
   const endGame = () => {
     const half = Math.ceil(slot3.length / 2);
     const toWinner = slot3.slice(0, half);
@@ -193,7 +192,7 @@ export default function GameBoard() {
     gameEnded,
   ]);
 
-  // --- заповнити колоди ---
+  // заповнити колоди
   const fillBothDecks = () => {
     let mainCopy = [...mainDeck];
     let playerCopy = [...playerDeck];
@@ -245,7 +244,7 @@ export default function GameBoard() {
       alignItems={"center"}
       flexDirection={"column"}
     >
-      <BotSpace playerTag="player2" cards={opponentDeck} playCard={playCard}>
+      <BotSpace cards={opponentDeck} playCard={playCard}>
         <PointsDeck opponent cards={opponentsPointsDeck} />
       </BotSpace>
 

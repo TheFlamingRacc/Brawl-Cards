@@ -13,14 +13,20 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [openModeDialog, setOpenModeDialog] = useState(false);
+  const [openDifficultyDialog, setOpenDifficultyDialog] = useState(false);
+
   const router = useRouter();
+
+  const [hoverDifficulty, setHoverDifficulty] = useState("");
+
+  const difficulties: any = {
+    easy: "Суперник майже не думає чим ходити",
+    medium: "Суперник розбирається у грі, проте не завжди неуважний",
+    hard: "Суперник добре орієнтується у грі, грає обачніше",
+    extreme: "Тебе врятує тільки вдача...",
+  };
+
   return (
     <Box
       display={"flex"}
@@ -36,9 +42,9 @@ export default function Home() {
       <Typography fontWeight={"600"} variant="h1">
         Brawl Cards
       </Typography>
+
       <Box
         width={"350px"}
-        height={"auto"}
         display={"flex"}
         flexDirection={"column"}
         p={2}
@@ -50,16 +56,17 @@ export default function Home() {
         }}
       >
         <Button
-          onClick={() => handleClickOpen()}
+          onClick={() => setOpenModeDialog(true)}
           variant="contained"
           color="secondary"
         >
           Грати
         </Button>
+
         <Button
           onClick={() =>
             window.open(
-              "https://www.olx.ua/d/uk/obyavlenie/nastlna-gra-brawl-cards-IDWzbSm.html",
+              "https://www.olx.ua/d/uk/obyavlenlenie/nastlna-gra-brawl-cards-IDWzbSm.html",
               "_blank"
             )
           }
@@ -68,16 +75,16 @@ export default function Home() {
         >
           Придбати гру
         </Button>
+
         <Button
           disabled
           variant="contained"
           color="secondary"
-          sx={{
-            color: "#b700ff4d !important",
-          }}
+          sx={{ color: "#b700ff4d !important" }}
         >
           Правила гри
         </Button>
+
         <Button
           onClick={() => window.open("https://t.me/brawl_cards", "_blank")}
           variant="outlined"
@@ -86,9 +93,13 @@ export default function Home() {
           Приєднатися до спільноти
         </Button>
       </Box>
+
+      {/* ─────────────────────────────── */}
+      {/* 1️⃣ Діалог вибору режиму гри */}
+      {/* ─────────────────────────────── */}
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={openModeDialog}
+        onClose={() => setOpenModeDialog(false)}
         PaperProps={{
           sx: {
             backgroundColor: "#1a1a1d",
@@ -129,8 +140,8 @@ export default function Home() {
             variant="contained"
             color="secondary"
             onClick={() => {
-              handleClose();
-              router.push("/classic");
+              setOpenModeDialog(false);
+              setOpenDifficultyDialog(true);
             }}
           >
             Класичний
@@ -141,9 +152,7 @@ export default function Home() {
             disabled
             variant="contained"
             color="secondary"
-            sx={{
-              color: "#b700ff4d !important",
-            }}
+            sx={{ color: "#b700ff4d !important" }}
           >
             Сучасний
           </Button>
@@ -153,12 +162,94 @@ export default function Home() {
             disabled
             variant="contained"
             color="secondary"
-            sx={{
-              color: "#b700ff4d !important",
-            }}
+            sx={{ color: "#b700ff4d !important" }}
           >
             Екстремальний
           </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* ─────────────────────────────── */}
+      {/* 2️⃣ Діалог вибору складності */}
+      {/* ─────────────────────────────── */}
+      <Dialog
+        open={openDifficultyDialog}
+        onClose={() => setOpenDifficultyDialog(false)}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#1a1a1d",
+            borderRadius: "20px",
+            p: 2,
+            color: "white",
+            minWidth: "350px",
+          },
+        }}
+      >
+        <DialogTitle
+          sx={{
+            fontWeight: 700,
+            fontSize: "24px",
+            textAlign: "center",
+          }}
+        >
+          Оберіть складність суперника
+        </DialogTitle>
+
+        <DialogActions
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 1.5,
+            px: 3,
+            pb: 2,
+          }}
+        >
+          {Object.keys(difficulties).map((key) => (
+            <Button
+              key={key}
+              fullWidth
+              variant={
+                key !== "easy" && key !== "medium" && key !== "hard"
+                  ? "outlined"
+                  : "contained"
+              }
+              color="secondary"
+              onMouseEnter={() => setHoverDifficulty(key)}
+              onMouseLeave={() => setHoverDifficulty("")}
+              onClick={() => router.push(`/classic?difficulty=${key}`)}
+            >
+              {key === "easy"
+                ? "Легка"
+                : key === "medium"
+                ? "Середня"
+                : key === "hard"
+                ? "Важка"
+                : "Екстремальна"}
+            </Button>
+          ))}
+
+          {/* Опис показується тільки при наведені */}
+
+          <DialogContent
+            sx={{
+              textAlign: "center",
+              py: 1,
+              minHeight: "60px",
+              width: "500px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                opacity: hoverDifficulty === "" ? 0 : 0.8,
+                transition: "ease 0.3s opacity",
+              }}
+            >
+              {difficulties[hoverDifficulty]}
+            </Typography>
+          </DialogContent>
         </DialogActions>
       </Dialog>
     </Box>

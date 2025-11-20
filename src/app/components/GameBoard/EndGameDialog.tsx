@@ -52,7 +52,10 @@ export default function EndGameDialog({ gameEnded }: { gameEnded: boolean }) {
     setIsBattling(false);
   };
   const router = useRouter();
-  const handleClose = () => router.push("/");
+  const handleClose = () => {
+    resetGameAtoms();
+    router.push("/");
+  };
 
   const [playersPointsDeck] = useAtom(playersPointsDeckAtom);
   const [opponentsPointsDeck] = useAtom(opponentsPointsDeckAtom);
@@ -108,8 +111,6 @@ export default function EndGameDialog({ gameEnded }: { gameEnded: boolean }) {
           color="secondary"
           onClick={() => {
             resetGameAtoms();
-
-            router.push("/classic");
           }}
         >
           Зіграти ще раз

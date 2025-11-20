@@ -7,9 +7,9 @@ export function CardSlot({ card }: { card: CardType | null }) {
       {card && (
         <motion.div
           key={card.id}
-          initial={{ opacity: 0, y: -50 }} // коли ПОЯВЛЯЄТЬСЯ
+          initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }} // коли ЗНИКАЄ
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           style={{
             width: "100px",

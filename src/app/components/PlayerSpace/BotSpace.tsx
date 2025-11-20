@@ -5,35 +5,53 @@ import Card from "../Card";
 import {
   CardType,
   currentAttackingAtom,
-  opponentsPointsDeckAtom,
-  playersPointsDeckAtom,
   slot1Atom,
   slot2Atom,
-  slot3Atom,
 } from "@/app/atoms";
 import { ReactNode, useEffect } from "react";
 import { useAtom } from "jotai";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 export default function BotSpace({
   cards,
   children,
   bot = false,
-  playerTag,
   playCard,
 }: {
   cards: CardType[];
   children?: ReactNode;
   bot?: boolean;
-  playerTag: string;
   playCard(cardId: number): void;
 }) {
   const [currentAttacking] = useAtom(currentAttackingAtom);
   const [slot1] = useAtom(slot1Atom);
   const [slot2] = useAtom(slot2Atom);
-  const [slot3] = useAtom(slot3Atom);
-  const [opponentsPointsDeck] = useAtom(opponentsPointsDeckAtom);
-  const [playersPointsDeck] = useAtom(playersPointsDeckAtom);
+
+  const params = useSearchParams();
+
+  const getRandomCard = (hand: CardType[]) => {
+    const randomIndex = Math.floor(Math.random() * hand.length);
+    return randomIndex;
+  };
+  const getMiddleCard = (slotCard: CardType, hand: CardType[]) => {
+    let fallbackIndex: number | null = null;
+
+    for (let i = 0; i < hand.length; i++) {
+      const card = hand[i];
+      let statWinCount = 0;
+
+      for (let j = 0; j < 3; j++) {
+        if (card.stats[j] > slotCard.stats[j]) statWinCount++;
+        else if (slotCard.stats[j] > card.stats[j]) statWinCount--;
+      }
+
+      if (statWinCount === 0) return i;
+      if (statWinCount < 0 && fallbackIndex === null) fallbackIndex = i;
+    }
+
+    return fallbackIndex ?? 0;
+  };
 
   const getBetterCard = (slotCard: CardType, hand: CardType[]): number => {
     let bestIndex = 0;
@@ -54,6 +72,28 @@ export default function BotSpace({
     return bestIndex;
   };
 
+  const difficultyTriggerBots = (slot1: CardType, hand: CardType[]) => {
+    const difficulty = params.get("difficulty");
+
+    if (difficulty === "easy") return getRandomCard(cards);
+    if (difficulty === "medium") {
+      const randomChoise = Math.floor(Math.random() * 100);
+      if (randomChoise <= 33) return getRandomCard(hand);
+      if (randomChoise > 33 && randomChoise <= 66)
+        return getMiddleCard(slot1, hand);
+      if (randomChoise > 66) return getBetterCard(slot1, hand);
+    }
+    if (difficulty === "hard") {
+      const randomChoise = Math.floor(Math.random() * 100);
+      if (randomChoise <= 10) return getRandomCard(hand);
+      if (randomChoise > 10 && randomChoise <= 30)
+        return getMiddleCard(slot1, hand);
+      if (randomChoise > 30) return getBetterCard(slot1, hand);
+    }
+    if (difficulty === "extreme") return getBetterCard(slot1, hand);
+    return getRandomCard(hand);
+  };
+
   useEffect(() => {
     if (currentAttacking !== "player2") return;
     if (!cards || cards.length === 0) return;
@@ -61,8 +101,8 @@ export default function BotSpace({
 
     const cardIndex =
       currentAttacking === "player2" && slot1 === null
-        ? Math.floor(Math.random() * cards.length)
-        : getBetterCard(slot1, cards);
+        ? getRandomCard(cards)
+        : difficultyTriggerBots(slot1!, cards);
     const timer = setTimeout(() => {
       playCard(cards[cardIndex].id);
     }, 500);
