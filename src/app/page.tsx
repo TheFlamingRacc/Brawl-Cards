@@ -1,66 +1,166 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import {
+  Box,
+  Button,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+} from "@mui/material";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const router = useRouter();
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box
+      display={"flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      width={"100vw"}
+      height={"100vh"}
+      flexDirection={"column"}
+      sx={{
+        backgroundColor: "#0c0016ff",
+      }}
+    >
+      <Typography fontWeight={"600"} variant="h1">
+        Brawl Cards
+      </Typography>
+      <Box
+        width={"350px"}
+        height={"auto"}
+        display={"flex"}
+        flexDirection={"column"}
+        p={2}
+        gap={2}
+        sx={{
+          border: "solid 2px #35353573",
+          borderRadius: "30px",
+          backgroundColor: "#24232352",
+        }}
+      >
+        <Button
+          onClick={() => handleClickOpen()}
+          variant="contained"
+          color="secondary"
+        >
+          Грати
+        </Button>
+        <Button
+          onClick={() =>
+            window.open(
+              "https://www.olx.ua/d/uk/obyavlenie/nastlna-gra-brawl-cards-IDWzbSm.html",
+              "_blank"
+            )
+          }
+          variant="outlined"
+          color="secondary"
+        >
+          Придбати гру
+        </Button>
+        <Button
+          disabled
+          variant="contained"
+          color="secondary"
+          sx={{
+            color: "#b700ff4d !important",
+          }}
+        >
+          Правила гри
+        </Button>
+        <Button
+          onClick={() => window.open("https://t.me/brawl_cards", "_blank")}
+          variant="outlined"
+          color="secondary"
+        >
+          Приєднатися до спільноти
+        </Button>
+      </Box>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#1a1a1d",
+            borderRadius: "20px",
+            p: 2,
+            color: "white",
+            minWidth: "350px",
+          },
+        }}
+      >
+        <DialogTitle
+          sx={{
+            fontWeight: 700,
+            fontSize: "24px",
+            textAlign: "center",
+          }}
+        >
+          Оберіть режим гри
+        </DialogTitle>
+
+        <DialogContent sx={{ textAlign: "center", pb: 1 }}>
+          <Typography sx={{ opacity: 0.8 }}>
+            Виберіть стиль гри, який вам найбільше підходить
+          </Typography>
+        </DialogContent>
+
+        <DialogActions
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 1.5,
+            px: 3,
+            pb: 2,
+          }}
+        >
+          <Button
+            fullWidth
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              handleClose();
+              router.push("/classic");
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Класичний
+          </Button>
+
+          <Button
+            fullWidth
+            disabled
+            variant="contained"
+            color="secondary"
+            sx={{
+              color: "#b700ff4d !important",
+            }}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Сучасний
+          </Button>
+
+          <Button
+            fullWidth
+            disabled
+            variant="contained"
+            color="secondary"
+            sx={{
+              color: "#b700ff4d !important",
+            }}
+          >
+            Екстремальний
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
   );
 }
