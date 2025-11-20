@@ -58,6 +58,44 @@ export default function GameBoard() {
     owner,
   });
 
+  // визначення хто перший ходить
+  const determineFirstPlayer = (
+    playerDeck: CardType[],
+    opponentDeck: CardType[]
+  ) => {
+    const sortedPlayer = [...playerDeck].sort((a, b) => b.rarity - a.rarity);
+    const sortedOpponent = [...opponentDeck].sort(
+      (a, b) => b.rarity - a.rarity
+    );
+
+    const maxLength = Math.max(sortedPlayer.length, sortedOpponent.length);
+
+    for (let i = 0; i < maxLength; i++) {
+      const playerCard = sortedPlayer[i];
+      const opponentCard = sortedOpponent[i];
+
+      if (!playerCard) {
+        setCurrentAttacking("player2");
+        return;
+      }
+      if (!opponentCard) {
+        setCurrentAttacking("player1");
+        return;
+      }
+
+      if (playerCard.rarity > opponentCard.rarity) {
+        setCurrentAttacking("player1");
+        return;
+      }
+      if (opponentCard.rarity > playerCard.rarity) {
+        setCurrentAttacking("player2");
+        return;
+      }
+    }
+
+    setCurrentAttacking(Math.random() < 0.5 ? "player1" : "player2");
+  };
+
   const getRandomCard = (deck: CardType[], owner: "player1" | "player2") => {
     const randomIndex = Math.floor(Math.random() * deck.length);
     const card = assignOwner(deck[randomIndex], owner);
@@ -138,7 +176,7 @@ export default function GameBoard() {
 
   // видача екстра-карти
   useEffect(() => {
-    const owner = currentAttacking;
+    const owner = currentAttacking as "player1" | "player2";
     const currentDeck = owner === "player1" ? playerDeck : opponentDeck;
     const setDeck = owner === "player1" ? setPlayerDeck : setOpponentDeck;
 
@@ -221,7 +259,9 @@ export default function GameBoard() {
       if (playerCopy.length >= 5 && opponentCopy.length < 5) turn = "opponent";
       if (opponentCopy.length >= 5 && playerCopy.length < 5) turn = "player";
     }
-
+    if (currentAttacking === "") {
+      determineFirstPlayer(playerCopy, opponentCopy);
+    }
     setPlayerDeck(playerCopy);
     setOpponentDeck(opponentCopy);
     setMainDeck(mainCopy);
