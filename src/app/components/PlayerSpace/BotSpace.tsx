@@ -14,7 +14,6 @@ import {
 import { ReactNode, useEffect } from "react";
 import { useAtom } from "jotai";
 import { motion, AnimatePresence } from "framer-motion";
-import { CardType } from "@/app/atoms";
 
 export default function BotSpace({
   cards,
@@ -56,9 +55,9 @@ export default function BotSpace({
   };
 
   useEffect(() => {
-    if (currentAttacking !== "player2") return; // хід не бота
-    if (!cards || cards.length === 0) return; // немає карт
-    if (slot1 && slot2) return; // обидва слоти зайняті
+    if (currentAttacking !== "player2") return;
+    if (!cards || cards.length === 0) return;
+    if (slot1 && slot2) return;
 
     const cardIndex =
       currentAttacking === "player2" && slot1 === null
@@ -68,7 +67,7 @@ export default function BotSpace({
       playCard(cards[cardIndex].id);
     }, 500);
 
-    return () => clearTimeout(timer); // cleanup
+    return () => clearTimeout(timer);
   }, [currentAttacking, slot1, slot2, cards]);
   return (
     <Box
