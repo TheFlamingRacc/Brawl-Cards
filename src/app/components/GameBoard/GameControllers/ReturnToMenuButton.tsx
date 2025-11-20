@@ -41,7 +41,7 @@ export default function ReturnToMenuButton() {
     setSlot1(null);
     setSlot2(null);
     setSlot3([]);
-    setCurrentAttacking("player1");
+    setCurrentAttacking("");
     setGameEnded(false);
     setIsBattling(false);
   };
