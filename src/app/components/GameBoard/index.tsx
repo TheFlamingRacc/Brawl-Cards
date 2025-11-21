@@ -105,7 +105,10 @@ export default function GameBoard() {
 
   const addCardToDeck = (deck: CardType[], card: CardType) => [...deck, card];
   // походити
-  const playCard = (cardId: number) => {
+  const playCard = (
+    cardId: number,
+    substituteCard: CardType | false = false
+  ) => {
     const isPlayer1 = currentAttacking === "player1";
     const targetDeck = isPlayer1 ? playerDeck : opponentDeck;
     const setDeck = isPlayer1 ? setPlayerDeck : setOpponentDeck;
@@ -117,8 +120,13 @@ export default function GameBoard() {
     if (slot1 === null || slot2 === null) {
       const updatedDeck = targetDeck.filter((c) => c.id !== cardId);
       setDeck(updatedDeck);
-      setSlot1(slot1 ?? targetCard);
-      setSlot2(slot1 ? targetCard : slot2);
+      if (substituteCard) {
+        setSlot1(slot1 ?? substituteCard);
+        setSlot2(slot1 ? substituteCard : slot2);
+      } else {
+        setSlot1(slot1 ?? targetCard);
+        setSlot2(slot1 ? targetCard : slot2);
+      }
       setSlot3([...slot3, targetCard]);
 
       toggleAttacking();

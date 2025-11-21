@@ -19,6 +19,11 @@ export function CardSlot({ card }: { card: CardType | null }) {
             borderRadius: "8px",
             backgroundPosition: "center",
             backgroundColor: "#8a8a8a67",
+            boxShadow: card.name === "special" ? "0 0 20px 4px red" : "none",
+            animation:
+              card.name === "special"
+                ? "rainbow-shadow 4s linear infinite alternate"
+                : "none",
           }}
         />
       )}

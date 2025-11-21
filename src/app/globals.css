@@ -40,3 +40,13 @@ a {
     color-scheme: dark;
   }
 }
+
+@keyframes rainbow-shadow {
+  0% { box-shadow: 0 0 20px 4px red; }
+  16% { box-shadow: 0 0 20px 4px orange; }
+  32% { box-shadow: 0 0 20px 4px yellow; }
+  48% { box-shadow: 0 0 20px 4px green; }
+  64% { box-shadow: 0 0 20px 4px blue; }
+  80% { box-shadow: 0 0 20px 4px indigo; }
+  100% { box-shadow: 0 0 20px 4px violet; }
+}
