@@ -114,8 +114,10 @@ export default function BattleSlots({}) {
         </Typography>
         {displayedAttacking === "player1" ? (
           <LocalDiningIcon />
-        ) : (
+        ) : displayedAttacking === "player2" ? (
           <ShieldIcon />
+        ) : (
+          ""
         )}
       </Box>
 

@@ -195,16 +195,14 @@ export default function GameBoard() {
 
     if (currentAttacking === "player1") {
       setPlayersPointsDeck((prev) => [...prev, ...toWinner, ...playerDeck]);
-      setPlayerDeck([]);
       setOpponentsPointsDeck((prev) => [...prev, ...toLoser, ...opponentDeck]);
-      setOpponentDeck([]);
     } else if (currentAttacking === "player2") {
       setOpponentsPointsDeck((prev) => [...prev, ...toWinner, ...playerDeck]);
-      setOpponentDeck([]);
       setPlayersPointsDeck((prev) => [...prev, ...toLoser, ...opponentDeck]);
-      setPlayerDeck([]);
     }
 
+    setOpponentDeck([]);
+    setPlayerDeck([]);
     setGameEnded(true);
   };
 
@@ -237,28 +235,34 @@ export default function GameBoard() {
     let mainCopy = [...mainDeck];
     let playerCopy = [...playerDeck];
     let opponentCopy = [...opponentDeck];
+    let playerCopyPrice = playerCopy.reduce((acc, x) => {
+      return (acc = acc + x.price);
+    }, 0);
+    let opponentCopyPrice = opponentCopy.reduce((acc, x) => {
+      return (acc = acc + x.price);
+    }, 0);
 
     let turn: "player" | "opponent" = "player";
 
     while (
-      (playerCopy.length < 5 || opponentCopy.length < 5) &&
+      (playerCopyPrice < 5 || opponentCopyPrice < 5) &&
       mainCopy.length > 0
     ) {
       const owner = turn === "player" ? "player1" : "player2";
       const { randomCard, actualDeck } = getRandomCard(mainCopy, owner);
       mainCopy = actualDeck;
 
-      if (turn === "player" && playerCopy.length < 5) {
+      if (turn === "player" && playerCopyPrice < 5) {
         playerCopy.push(randomCard);
-        turn = "opponent";
-      } else if (turn === "opponent" && opponentCopy.length < 5) {
+        playerCopyPrice += randomCard.price;
+      } else if (turn === "opponent" && opponentCopyPrice < 5) {
         opponentCopy.push(randomCard);
-        turn = "player";
+        opponentCopyPrice += randomCard.price;
       }
 
-      if (playerCopy.length >= 5 && opponentCopy.length < 5) turn = "opponent";
-      if (opponentCopy.length >= 5 && playerCopy.length < 5) turn = "player";
+      turn = turn === "player" ? "opponent" : "player";
     }
+
     if (currentAttacking === "") {
       determineFirstPlayer(playerCopy, opponentCopy);
     }

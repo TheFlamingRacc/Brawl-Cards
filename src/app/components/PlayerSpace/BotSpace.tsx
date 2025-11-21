@@ -24,6 +24,9 @@ export default function BotSpace({
   bot?: boolean;
   playCard(cardId: number): void;
 }) {
+  const MAX_WIDTH = 800;
+  const CARD_WIDTH = 150;
+
   const [currentAttacking] = useAtom(currentAttackingAtom);
   const [slot1] = useAtom(slot1Atom);
   const [slot2] = useAtom(slot2Atom);
@@ -122,23 +125,35 @@ export default function BotSpace({
       }}
     >
       <AnimatePresence>
-        {cards.map((card) => (
-          <motion.div
-            key={card.id}
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-          >
-            <Card
-              imgUrl={"/Default.png"}
-              hoverable={false}
-              cardId={card.id}
-              playCard={playCard}
-            />
-          </motion.div>
-        ))}
+        {cards.map((card, index) => {
+          const totalCards = cards.length;
+          const overlap =
+            totalCards * CARD_WIDTH > MAX_WIDTH
+              ? (MAX_WIDTH - CARD_WIDTH) / (totalCards - 1)
+              : CARD_WIDTH;
+
+          return (
+            <motion.div
+              key={card.id}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -100 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              style={{
+                marginLeft: index === 0 ? 0 : -CARD_WIDTH + overlap,
+                zIndex: index,
+              }}
+            >
+              <Card
+                imgUrl={"/Default.png"}
+                hoverable={false}
+                cardId={card.id}
+                playCard={playCard}
+              />
+            </motion.div>
+          );
+        })}
       </AnimatePresence>
       {children}
     </Box>

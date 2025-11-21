@@ -46,15 +46,14 @@ export default function Card({
         transition: "bottom 0.2s ease, box-shadow 0.5s ease",
         bottom: selected ? "20px" : 0,
         boxShadow: selected ? "0 0 30px 10px #8c00ffff" : "none",
-        zIndex: selected ? 2 : 0,
+        zIndex: selected ? 100 : 0,
         "&:hover": {
-          bottom: hoverable ? "20px" : 0,
           boxShadow: selected
             ? ""
             : hoverable
             ? "0 20px 30px 20px #000000ff"
             : "",
-          zIndex: hoverable ? 2 : 0,
+          zIndex: hoverable ? 100 : 0,
         },
       }}
     />
