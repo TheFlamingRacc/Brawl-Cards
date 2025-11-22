@@ -39,12 +39,17 @@ export default function Home() {
         backgroundColor: "#0c0016ff",
       }}
     >
-      <Typography fontWeight={"600"} variant="h1">
+      <Typography
+        fontWeight={"600"}
+        sx={{
+          fontSize: "min(min(15vw, 30vh), 70px)",
+        }}
+      >
         Brawl Cards
       </Typography>
 
       <Box
-        width={"350px"}
+        width={"clamp(300px, 80vw, 350px)"}
         display={"flex"}
         flexDirection={"column"}
         p={2}
@@ -94,19 +99,18 @@ export default function Home() {
         </Button>
       </Box>
 
-      {/* ─────────────────────────────── */}
-      {/* 1️⃣ Діалог вибору режиму гри */}
-      {/* ─────────────────────────────── */}
       <Dialog
         open={openModeDialog}
         onClose={() => setOpenModeDialog(false)}
-        PaperProps={{
-          sx: {
-            backgroundColor: "#1a1a1d",
-            borderRadius: "20px",
-            p: 2,
-            color: "white",
-            minWidth: "350px",
+        slotProps={{
+          paper: {
+            sx: {
+              backgroundColor: "#1a1a1d",
+              borderRadius: "20px",
+              p: 2,
+              color: "white",
+              minWidth: "300px",
+            },
           },
         }}
       >
@@ -169,19 +173,18 @@ export default function Home() {
         </DialogActions>
       </Dialog>
 
-      {/* ─────────────────────────────── */}
-      {/* 2️⃣ Діалог вибору складності */}
-      {/* ─────────────────────────────── */}
       <Dialog
         open={openDifficultyDialog}
         onClose={() => setOpenDifficultyDialog(false)}
-        PaperProps={{
-          sx: {
-            backgroundColor: "#1a1a1d",
-            borderRadius: "20px",
-            p: 2,
-            color: "white",
-            minWidth: "350px",
+        slotProps={{
+          paper: {
+            sx: {
+              backgroundColor: "#1a1a1d",
+              borderRadius: "20px",
+              p: 2,
+              color: "white",
+              minWidth: "300px",
+            },
           },
         }}
       >
@@ -228,14 +231,12 @@ export default function Home() {
             </Button>
           ))}
 
-          {/* Опис показується тільки при наведені */}
-
           <DialogContent
             sx={{
               textAlign: "center",
               py: 1,
               minHeight: "60px",
-              width: "500px",
+              width: "clamp(250px, 70vw, 500px)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

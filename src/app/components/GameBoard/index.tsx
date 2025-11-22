@@ -315,6 +315,7 @@ export default function GameBoard() {
       sx={{ backgroundColor: "#0f001bff" }}
       position={"relative"}
       p={2}
+      pt={{ xs: 10, md: 0 }}
       display={"flex"}
       justifyContent={"space-between"}
       alignItems={"center"}

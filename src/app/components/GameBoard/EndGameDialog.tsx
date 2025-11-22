@@ -63,13 +63,15 @@ export default function EndGameDialog({ gameEnded }: { gameEnded: boolean }) {
     <Dialog
       open={gameEnded}
       onClose={handleClose}
-      PaperProps={{
-        sx: {
-          backgroundColor: "#1a1a1d",
-          borderRadius: "20px",
-          p: 2,
-          color: "white",
-          minWidth: "350px",
+      slotProps={{
+        paper: {
+          sx: {
+            backgroundColor: "#1a1a1d",
+            borderRadius: "20px",
+            p: 2,
+            color: "white",
+            minWidth: "300px",
+          },
         },
       }}
     >

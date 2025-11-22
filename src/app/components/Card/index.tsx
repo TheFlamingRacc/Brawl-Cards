@@ -63,8 +63,8 @@ export default function Card({
         selected ? handleClick(cardId) : setSelected(true);
       }}
       sx={{
-        width: "150px",
-        height: "225px",
+        width: "clamp(50px, 15vw, 150px)",
+        aspectRatio: "2/3",
         position: "relative",
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "135%",

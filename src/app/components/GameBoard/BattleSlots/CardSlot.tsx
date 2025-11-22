@@ -13,7 +13,7 @@ export function CardSlot({ card }: { card: CardType | null }) {
           transition={{ duration: 0.2 }}
           style={{
             width: "100px",
-            height: "150px",
+            aspectRatio: "2/3",
             backgroundImage: `url(${card.imgUrl})`,
             backgroundSize: "135%",
             borderRadius: "8px",
