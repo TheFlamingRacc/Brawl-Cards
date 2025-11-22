@@ -74,7 +74,7 @@ export default function Card({
         bottom: selected ? "20px" : 0,
         zIndex: selected ? 100 : 0,
         boxShadow:
-          cardName === "special"
+          cardName === "special" && imgUrl !== "/Default.png"
             ? "0 0 20px 4px red"
             : selected
             ? "0 0px 50px 10px #8400ffff"
