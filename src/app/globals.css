@@ -46,7 +46,43 @@ a {
   16% { box-shadow: 0 0 20px 4px orange; }
   32% { box-shadow: 0 0 20px 4px yellow; }
   48% { box-shadow: 0 0 20px 4px green; }
-  64% { box-shadow: 0 0 20px 4px blue; }
-  80% { box-shadow: 0 0 20px 4px indigo; }
-  100% { box-shadow: 0 0 20px 4px violet; }
+  64% { box-shadow: 0 0 20px 4px skyblue; }
+  80% { box-shadow: 0 0 20px 4px blue; }
+  100% { box-shadow: 0 0 20px 4px purple; }
+}
+
+@keyframes popFlashWin {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
+  10% {
+    box-shadow: 0 0 300px 150px rgba(0, 255, 0, 0.64);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
+}
+
+@keyframes popFlashDraw {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
+  10% {
+    box-shadow: 0 0 300px 150px rgba(255, 230, 0, 0.64);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
+}
+
+@keyframes popFlashLose {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
+  10% {
+    box-shadow: 0 0 300px 150px rgba(255, 0, 0, 0.64);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(0, 255, 0, 0);
+  }
 }

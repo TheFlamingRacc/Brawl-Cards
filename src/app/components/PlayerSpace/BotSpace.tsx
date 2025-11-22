@@ -126,7 +126,6 @@ export default function BotSpace({
           slot1 !== null
             ? difficultyTriggerBots(slot1!, classicDeck, true).card
             : getRandomCard(classicDeck, true).card;
-        console.log({ imgUrl, stats });
         playCard(cards[cardIndex].id, {
           id: cards[cardIndex].id,
           name: cards[cardIndex].name,

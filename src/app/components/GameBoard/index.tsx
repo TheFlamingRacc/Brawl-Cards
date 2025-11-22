@@ -47,9 +47,28 @@ export default function GameBoard() {
   const [isBattling, setIsBattling] = useAtom(isBattlingAtom);
   const [currentAttacking, setCurrentAttacking] = useAtom(currentAttackingAtom);
 
+  // крипто-рандом
+  const cryptoRandomInt = (max: number) => {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return array[0] % max;
+  };
+
+  // функція перемішування колоди
+  const cryptoShuffleDeck = (deck: CardType[]) => {
+    const copy = [...deck];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = cryptoRandomInt(i + 1);
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  };
+
+  // змінити напаадаючого
   const toggleAttacking = () =>
     setCurrentAttacking((prev) => (prev === "player1" ? "player2" : "player1"));
 
+  // додати власника до карти
   const assignOwner = (
     card: CardType,
     owner: "player1" | "player2"
@@ -96,14 +115,17 @@ export default function GameBoard() {
     setCurrentAttacking(Math.random() < 0.5 ? "player1" : "player2");
   };
 
+  // отримати рандомну карту й призначити власника
   const getRandomCard = (deck: CardType[], owner: "player1" | "player2") => {
-    const randomIndex = Math.floor(Math.random() * deck.length);
+    const randomIndex = cryptoRandomInt(deck.length);
     const card = assignOwner(deck[randomIndex], owner);
     const newDeck = deck.filter((_, i) => i !== randomIndex);
     return { randomCard: card, actualDeck: newDeck };
   };
 
+  // додати карту в колоду
   const addCardToDeck = (deck: CardType[], card: CardType) => [...deck, card];
+
   // походити
   const playCard = (
     cardId: number,
@@ -169,7 +191,7 @@ export default function GameBoard() {
     }, 1000);
   }, [slot2, slot3]);
 
-  //закінчити раунд
+  // закінчити раунд
   const endRound = () => {
     setSlot1(null);
     setSlot2(null);
@@ -240,7 +262,7 @@ export default function GameBoard() {
 
   // заповнити колоди
   const fillBothDecks = () => {
-    let mainCopy = [...mainDeck];
+    let shuffledDeck = cryptoShuffleDeck(mainDeck);
     let playerCopy = [...playerDeck];
     let opponentCopy = [...opponentDeck];
     let playerCopyPrice = playerCopy.reduce((acc, x) => {
@@ -254,11 +276,11 @@ export default function GameBoard() {
 
     while (
       (playerCopyPrice < 5 || opponentCopyPrice < 5) &&
-      mainCopy.length > 0
+      shuffledDeck.length > 0
     ) {
       const owner = turn === "player" ? "player1" : "player2";
-      const { randomCard, actualDeck } = getRandomCard(mainCopy, owner);
-      mainCopy = actualDeck;
+      const { randomCard, actualDeck } = getRandomCard(shuffledDeck, owner);
+      shuffledDeck = actualDeck;
 
       if (turn === "player" && playerCopyPrice < 5) {
         playerCopy.push(randomCard);
@@ -276,7 +298,7 @@ export default function GameBoard() {
     }
     setPlayerDeck(playerCopy);
     setOpponentDeck(opponentCopy);
-    setMainDeck(mainCopy);
+    setMainDeck(shuffledDeck);
   };
 
   useEffect(() => {

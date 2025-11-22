@@ -19,7 +19,6 @@ export default function Card({
   const [visible, setVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // закриття по кліку назовні (і діалогу теж)
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
@@ -47,11 +46,10 @@ export default function Card({
       imgUrl,
       rarity: 0,
     });
-    setVisible(false); // 🔥 закриваємо діалог після вибору
-    setSelected(false); // 🔥 скидаємо виділення
+    setVisible(false);
+    setSelected(false);
   };
 
-  // коли діалог хоче закритися сам (натискання на backdrop / Esc)
   const handleDialogClose = () => {
     setVisible(false);
     setSelected(false);
@@ -76,8 +74,10 @@ export default function Card({
         bottom: selected ? "20px" : 0,
         zIndex: selected ? 100 : 0,
         boxShadow:
-          cardName === "special" && imgUrl !== "/Default.png"
+          cardName === "special"
             ? "0 0 20px 4px red"
+            : selected
+            ? "0 0px 50px 10px #8400ffff"
             : "none",
         animation:
           cardName === "special" && imgUrl !== "/Default.png"
@@ -96,7 +96,7 @@ export default function Card({
       <CardChoosingDialog
         selectCard={selectCard}
         visible={visible}
-        onClose={handleDialogClose} // 🔥 передаємо хендлер
+        onClose={handleDialogClose}
       />
     </Box>
   );
