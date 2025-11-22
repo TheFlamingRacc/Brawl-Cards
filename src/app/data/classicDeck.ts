@@ -6,7 +6,7 @@ export const classicDeck: CardType[] = [
     id: 1,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 0,
+    rarity: 1,
     imgUrl: "/Shelly.png",
   },
   {
@@ -14,7 +14,7 @@ export const classicDeck: CardType[] = [
     id: 2,
     price: 1,
     stats: [3, 4, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Nita.jpg",
   },
   {
@@ -22,7 +22,7 @@ export const classicDeck: CardType[] = [
     id: 3,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Colt.jpg",
   },
   {
@@ -30,7 +30,7 @@ export const classicDeck: CardType[] = [
     id: 4,
     price: 1,
     stats: [3, 4, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Bull.jpg",
   },
   {
@@ -38,7 +38,7 @@ export const classicDeck: CardType[] = [
     id: 5,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Brock.jpg",
   },
   {
@@ -46,7 +46,7 @@ export const classicDeck: CardType[] = [
     id: 6,
     price: 1,
     stats: [2, 5, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/El-Primo.jpg",
   },
   {
@@ -54,7 +54,7 @@ export const classicDeck: CardType[] = [
     id: 7,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Barley.jpg",
   },
   {
@@ -62,7 +62,7 @@ export const classicDeck: CardType[] = [
     id: 8,
     price: 1,
     stats: [2, 3, 4],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Poco.jpg",
   },
   {
@@ -70,7 +70,7 @@ export const classicDeck: CardType[] = [
     id: 9,
     price: 1,
     stats: [3, 5, 1],
-    rarity: 1,
+    rarity: 2,
     imgUrl: "/Rosa.jpg",
   },
   {
@@ -78,7 +78,7 @@ export const classicDeck: CardType[] = [
     id: 10,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Jessie.jpg",
   },
   {
@@ -86,7 +86,7 @@ export const classicDeck: CardType[] = [
     id: 11,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Dynamike.jpg",
   },
   {
@@ -94,7 +94,7 @@ export const classicDeck: CardType[] = [
     id: 12,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Tick.jpg",
   },
   {
@@ -102,7 +102,7 @@ export const classicDeck: CardType[] = [
     id: 13,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/8-bit.jpg",
   },
   {
@@ -110,7 +110,7 @@ export const classicDeck: CardType[] = [
     id: 14,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Rico.jpg",
   },
   {
@@ -118,7 +118,7 @@ export const classicDeck: CardType[] = [
     id: 15,
     price: 1,
     stats: [3, 4, 2],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Darryl.jpg",
   },
   {
@@ -126,7 +126,7 @@ export const classicDeck: CardType[] = [
     id: 16,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Penny.jpg",
   },
   {
@@ -134,7 +134,7 @@ export const classicDeck: CardType[] = [
     id: 17,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Carl.jpg",
   },
   {
@@ -142,7 +142,7 @@ export const classicDeck: CardType[] = [
     id: 18,
     price: 1,
     stats: [2, 5, 2],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Jacky.jpg",
   },
   {
@@ -150,7 +150,7 @@ export const classicDeck: CardType[] = [
     id: 19,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 2,
+    rarity: 3,
     imgUrl: "/Gus.jpg",
   },
   {
@@ -158,7 +158,7 @@ export const classicDeck: CardType[] = [
     id: 20,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Bo.jpg",
   },
   {
@@ -166,7 +166,7 @@ export const classicDeck: CardType[] = [
     id: 21,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Emz.jpg",
   },
   {
@@ -174,7 +174,7 @@ export const classicDeck: CardType[] = [
     id: 22,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Stu.jpg",
   },
   {
@@ -182,7 +182,7 @@ export const classicDeck: CardType[] = [
     id: 23,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Piper.jpg",
   },
   {
@@ -190,7 +190,7 @@ export const classicDeck: CardType[] = [
     id: 24,
     price: 1,
     stats: [2, 4, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Pam.jpg",
   },
   {
@@ -198,7 +198,7 @@ export const classicDeck: CardType[] = [
     id: 25,
     price: 1,
     stats: [2, 5, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Frank.jpg",
   },
   {
@@ -206,7 +206,7 @@ export const classicDeck: CardType[] = [
     id: 26,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Bibi.jpg",
   },
   {
@@ -214,7 +214,7 @@ export const classicDeck: CardType[] = [
     id: 27,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Bea.jpg",
   },
   {
@@ -222,7 +222,7 @@ export const classicDeck: CardType[] = [
     id: 28,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Nani.jpg",
   },
   {
@@ -230,7 +230,7 @@ export const classicDeck: CardType[] = [
     id: 29,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Edgar.jpg",
   },
   {
@@ -238,7 +238,7 @@ export const classicDeck: CardType[] = [
     id: 30,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Griff.jpg",
   },
   {
@@ -246,7 +246,7 @@ export const classicDeck: CardType[] = [
     id: 31,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Grom.jpg",
   },
   {
@@ -254,7 +254,7 @@ export const classicDeck: CardType[] = [
     id: 32,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Bonnie.jpg",
   },
   {
@@ -262,7 +262,7 @@ export const classicDeck: CardType[] = [
     id: 33,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Gale.jpg",
   },
   {
@@ -270,7 +270,7 @@ export const classicDeck: CardType[] = [
     id: 34,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Colette.jpg",
   },
   {
@@ -278,7 +278,7 @@ export const classicDeck: CardType[] = [
     id: 35,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Belle.jpg",
   },
   {
@@ -286,7 +286,7 @@ export const classicDeck: CardType[] = [
     id: 36,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Ash.jpg",
   },
   {
@@ -294,7 +294,7 @@ export const classicDeck: CardType[] = [
     id: 37,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Lola.jpg",
   },
   {
@@ -302,7 +302,7 @@ export const classicDeck: CardType[] = [
     id: 38,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Sam.jpg",
   },
   {
@@ -310,7 +310,7 @@ export const classicDeck: CardType[] = [
     id: 39,
     price: 1,
     stats: [5, 2, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Mandy.jpg",
   },
   {
@@ -318,7 +318,7 @@ export const classicDeck: CardType[] = [
     id: 40,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Maisie.jpg",
   },
   {
@@ -326,7 +326,7 @@ export const classicDeck: CardType[] = [
     id: 41,
     price: 1,
     stats: [2, 5, 2],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Hank.jpg",
   },
   {
@@ -334,7 +334,7 @@ export const classicDeck: CardType[] = [
     id: 42,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Pearl.jpg",
   },
   {
@@ -342,7 +342,7 @@ export const classicDeck: CardType[] = [
     id: 43,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Larry&Lawrie.jpg",
   },
   {
@@ -350,7 +350,7 @@ export const classicDeck: CardType[] = [
     id: 44,
     price: 1,
     stats: [2, 3, 4],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Angelo.jpg",
   },
   {
@@ -358,7 +358,7 @@ export const classicDeck: CardType[] = [
     id: 45,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 3,
+    rarity: 4,
     imgUrl: "/Berry.jpg",
   },
   {
@@ -366,7 +366,7 @@ export const classicDeck: CardType[] = [
     id: 46,
     price: 1,
     stats: [2, 3, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Mortis.jpg",
   },
   {
@@ -374,7 +374,7 @@ export const classicDeck: CardType[] = [
     id: 47,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Tara.jpg",
   },
   {
@@ -382,7 +382,7 @@ export const classicDeck: CardType[] = [
     id: 48,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Gene.jpg",
   },
   {
@@ -390,7 +390,7 @@ export const classicDeck: CardType[] = [
     id: 49,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Max.jpg",
   },
   {
@@ -398,7 +398,7 @@ export const classicDeck: CardType[] = [
     id: 50,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Mr.p.jpg",
   },
   {
@@ -406,7 +406,7 @@ export const classicDeck: CardType[] = [
     id: 51,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Sprout.jpg",
   },
   {
@@ -414,7 +414,7 @@ export const classicDeck: CardType[] = [
     id: 52,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Byron.jpg",
   },
   {
@@ -422,7 +422,7 @@ export const classicDeck: CardType[] = [
     id: 53,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Squeak.jpg",
   },
   {
@@ -430,7 +430,7 @@ export const classicDeck: CardType[] = [
     id: 54,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Lou.jpg",
   },
   {
@@ -438,7 +438,7 @@ export const classicDeck: CardType[] = [
     id: 55,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Ruffs.jpg",
   },
   {
@@ -446,7 +446,7 @@ export const classicDeck: CardType[] = [
     id: 56,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Buzz.jpg",
   },
   {
@@ -454,7 +454,7 @@ export const classicDeck: CardType[] = [
     id: 57,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Fang.jpg",
   },
   {
@@ -462,7 +462,7 @@ export const classicDeck: CardType[] = [
     id: 58,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Eve.jpg",
   },
   {
@@ -470,7 +470,7 @@ export const classicDeck: CardType[] = [
     id: 59,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Janet.jpg",
   },
   {
@@ -478,7 +478,7 @@ export const classicDeck: CardType[] = [
     id: 60,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Otis.jpg",
   },
   {
@@ -486,7 +486,7 @@ export const classicDeck: CardType[] = [
     id: 61,
     price: 1,
     stats: [3, 5, 1],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Buster.jpg",
   },
   {
@@ -494,7 +494,7 @@ export const classicDeck: CardType[] = [
     id: 62,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Gray.jpg",
   },
   {
@@ -502,7 +502,7 @@ export const classicDeck: CardType[] = [
     id: 63,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/R-T.jpg",
   },
   {
@@ -510,7 +510,7 @@ export const classicDeck: CardType[] = [
     id: 64,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Willow.jpg",
   },
   {
@@ -518,7 +518,7 @@ export const classicDeck: CardType[] = [
     id: 65,
     price: 1,
     stats: [3, 4, 2],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Doug.jpg",
   },
   {
@@ -526,7 +526,7 @@ export const classicDeck: CardType[] = [
     id: 66,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Chuck.jpg",
   },
   {
@@ -534,7 +534,7 @@ export const classicDeck: CardType[] = [
     id: 67,
     price: 1,
     stats: [3, 3, 3],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Charlie.jpg",
   },
   {
@@ -542,7 +542,7 @@ export const classicDeck: CardType[] = [
     id: 68,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Mico.jpg",
   },
   {
@@ -550,7 +550,7 @@ export const classicDeck: CardType[] = [
     id: 69,
     price: 1,
     stats: [2, 3, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Melodie.jpg",
   },
   {
@@ -558,7 +558,7 @@ export const classicDeck: CardType[] = [
     id: 70,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Lily.jpg",
   },
   {
@@ -566,7 +566,7 @@ export const classicDeck: CardType[] = [
     id: 71,
     price: 1,
     stats: [3, 2, 4],
-    rarity: 4,
+    rarity: 5,
     imgUrl: "/Clancy.jpg",
   },
   {
@@ -574,7 +574,7 @@ export const classicDeck: CardType[] = [
     id: 72,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Spike.jpg",
   },
   {
@@ -582,7 +582,7 @@ export const classicDeck: CardType[] = [
     id: 73,
     price: 1,
     stats: [5, 1, 3],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Crow.jpg",
   },
   {
@@ -590,7 +590,7 @@ export const classicDeck: CardType[] = [
     id: 74,
     price: 1,
     stats: [4, 2, 3],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Leon.jpg",
   },
   {
@@ -598,7 +598,7 @@ export const classicDeck: CardType[] = [
     id: 75,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Sandy.jpg",
   },
   {
@@ -606,7 +606,7 @@ export const classicDeck: CardType[] = [
     id: 76,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Amber.jpg",
   },
   {
@@ -614,7 +614,7 @@ export const classicDeck: CardType[] = [
     id: 77,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Meg.jpg",
   },
   {
@@ -622,7 +622,7 @@ export const classicDeck: CardType[] = [
     id: 78,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Surge.jpg",
   },
   {
@@ -630,7 +630,7 @@ export const classicDeck: CardType[] = [
     id: 79,
     price: 1,
     stats: [5, 3, 1],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Chester.jpg",
   },
   {
@@ -638,7 +638,7 @@ export const classicDeck: CardType[] = [
     id: 80,
     price: 1,
     stats: [4, 3, 2],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Cordelius.jpg",
   },
   {
@@ -646,7 +646,7 @@ export const classicDeck: CardType[] = [
     id: 81,
     price: 1,
     stats: [2, 2, 5],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Kit.jpg",
   },
   {
@@ -654,15 +654,47 @@ export const classicDeck: CardType[] = [
     id: 82,
     price: 1,
     stats: [3, 5, 1],
-    rarity: 5,
+    rarity: 6,
     imgUrl: "/Draco.jpg",
   },
   {
-    name: "draco",
+    name: "special",
     id: 83,
-    price: 0,
-    stats: [3, 5, 1],
-    rarity: 5,
-    imgUrl: "/Draco.jpg",
+    price: 1,
+    stats: [0, 0, 0],
+    rarity: 0,
+    imgUrl: "/Any.png",
+  },
+  {
+    name: "special",
+    id: 84,
+    price: 1,
+    stats: [0, 0, 0],
+    rarity: 0,
+    imgUrl: "/Any.png",
+  },
+  {
+    name: "special",
+    id: 85,
+    price: 1,
+    stats: [0, 0, 0],
+    rarity: 0,
+    imgUrl: "/Any.png",
+  },
+  {
+    name: "special",
+    id: 86,
+    price: 1,
+    stats: [0, 0, 0],
+    rarity: 0,
+    imgUrl: "/Any.png",
+  },
+  {
+    name: "special",
+    id: 87,
+    price: 1,
+    stats: [0, 0, 0],
+    rarity: 0,
+    imgUrl: "/Any.png",
   },
 ];

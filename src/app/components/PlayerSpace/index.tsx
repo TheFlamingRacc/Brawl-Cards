@@ -11,14 +11,12 @@ export default function PlayerSpace({
   cards,
   children,
   player = false,
-  bot = false,
   playerTag,
   playCard,
 }: {
   cards: CardType[];
   children?: ReactNode;
   player?: boolean;
-  bot?: boolean;
   playerTag: string;
   playCard(cardId: number): void;
 }) {
@@ -69,6 +67,7 @@ export default function PlayerSpace({
                 hoverable={player && currentAttacking === playerTag}
                 cardId={card.id}
                 playCard={playCard}
+                cardName={card.name}
               />
             </motion.div>
           );

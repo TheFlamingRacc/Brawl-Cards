@@ -45,35 +45,16 @@ export default function BattleSlots({}) {
       let slot1Power = slot1.stats;
       let slot2Power = slot2.stats;
       let statWinCount = 0;
-      if (slot1Power[0] > slot2Power[0]) {
-        statWinCount++;
-      } else if (slot2Power[0] > slot1Power[0]) {
-        statWinCount--;
+      for (let i = 0; i < 3; i++) {
+        if (slot1Power[i] > slot2Power[i]) statWinCount++;
+        else if (slot1Power[i] < slot2Power[i]) statWinCount--;
       }
-      if (slot1Power[1] > slot2Power[1]) {
-        statWinCount++;
-      } else if (slot2Power[1] > slot1Power[1]) {
-        statWinCount--;
-      }
-      if (slot1Power[2] > slot2Power[2]) {
-        statWinCount++;
-      } else if (slot2Power[2] > slot1Power[2]) {
-        statWinCount--;
-      }
-      if (statWinCount > 0) {
-        if (currentAttacking === "player1") {
-          return "Win";
-        } else {
-          return "Lose";
-        }
-      } else if (statWinCount < 0) {
-        if (currentAttacking === "player1") {
-          return "Lose";
-        } else {
-          return "Win";
-        }
-      }
-      return "Draw";
+
+      if (statWinCount === 0) return "Draw";
+
+      return statWinCount > 0 === (currentAttacking === "player1")
+        ? "Win"
+        : "Lose";
     }
   };
   return (
@@ -142,22 +123,6 @@ export default function BattleSlots({}) {
             width: "50px",
             transform: "translate(-50%, -50%)",
             animation: `popFlash${winner()} 1s ease-out forwards`,
-
-            "@keyframes popFlashWin": {
-              "0%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-              "10%": { boxShadow: "0 0 300px 150px rgba(0, 255, 0, 0.64)" },
-              "100%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-            },
-            "@keyframes popFlashDraw": {
-              "0%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-              "10%": { boxShadow: "0 0 300px 150px rgba(255, 230, 0, 0.64)" },
-              "100%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-            },
-            "@keyframes popFlashLose": {
-              "0%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-              "10%": { boxShadow: "0 0 300px 150px rgba(255, 0, 0, 0.64)" },
-              "100%": { boxShadow: "0 0 0px 0px rgba(0,255,0,0)" },
-            },
           }}
         />
       )}
