@@ -1,6 +1,6 @@
 import { Dialog, DialogTitle, DialogContent, Grid } from "@mui/material";
 import { classicDeck } from "@/app/data/classicDeck";
-import CardComponent from "../Card"; // 🟢 перейменовуємо щоб не було конфлікту
+import CardComponent from "../Card";
 import { CardType } from "@/app/atoms";
 
 export default function CardChoosingDialog({
